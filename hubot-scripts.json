@@ -1,1 +1,6 @@
-["shipit.coffee"]
+[
+  "shipit.coffee",
+  "encourage.coffee",
+  "weather.coffee",
+  "webshot.coffee"
+]

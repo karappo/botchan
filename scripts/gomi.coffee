@@ -8,9 +8,9 @@
 #   None
 #
 # Commands:
-#   hubot 今月のゴミは？
-#   hubot 来月のゴミ当番は？
-#   hubot 11月のごみ
+#   hubot 今月の<ゴミ|ごみ>は？ - Schedule a cron job to say something
+#   hubot 来月の<ゴミ|ごみ>当番は？ - Schedule a cron job to say something
+#   hubot 11月の<ゴミ|ごみ> - Schedule a cron job to say something
 
 moment = require 'moment'
 
@@ -25,7 +25,7 @@ module.exports = (robot) ->
     index = passed_months % people.length
     people[index]
 
-  robot.respond /((([0-9０１２３４５６７８９]+|先々|先|今|来|再来)月)|).*(ゴミ|ごみ)/i, (msg) ->
+  robot.respond /((([0-9０１２３４５６７８９]+|先々|先|今|来|再来)月)|).*(ゴミ|ごみ|gomi|trash|garbage)/i, (msg) ->
     target = moment()
     if msg.match[3]
       switch msg.match[3]
@@ -51,12 +51,13 @@ module.exports = (robot) ->
             return
 
     response = "#{target.month()+1}月のゴミ当番は @#{touban(target)} さんです。\n"
-    switch moment().format('d')
-      when 2,5 then response += 'おっと、今日は「可燃ごみ」が出せますよ！\n'
-      when 3 then   response += 'おっと、今日は「古紙・布」が出せますよ！\n'
-      when 4 then   response += 'おっと、今日は「ビン・缶」が出せますよ！\n'
     response += "\n"
     response += "可燃ゴミ：火・金の夜\n"
     response += "古紙・布：水の夜\n"
     response += "ビン・缶：木の夜\n"
+    response += "\n"
+    switch moment().format('d')*1
+      when 2,5 then response += 'おっと、今日は「可燃ごみ」が出せますよ！\n'
+      when 3 then   response += 'おっと、今日は「古紙・布」が出せますよ！\n'
+      when 4 then   response += 'おっと、今日は「ビン・缶」が出せますよ！\n'
     msg.send response

@@ -8,9 +8,11 @@
 #   None
 #
 # Commands:
-#   hubot 今月の<ゴミ|ごみ>は？ - Schedule a cron job to say something
-#   hubot 来月の<ゴミ|ごみ>当番は？ - Schedule a cron job to say something
-#   hubot 11月の<ゴミ|ごみ> - Schedule a cron job to say something
+#   hubot [1-12|先々|先|今|来|再来]月(の)<ゴミ>(は？) - 該当月のゴミ当番を教えてくれます
+#   hubot [1-12|先々|先|今|来|再来]月(の)<ごみ>(は？) - 該当月のごみ当番を教えてくれます
+#   hubot <gomi> - 当月のごみ当番を教えてくれます
+#   hubot <trash> - 当月のごみ当番を教えてくれます
+#   hubot <garbage> - 当月のごみ当番を教えてくれます
 
 moment = require 'moment'
 

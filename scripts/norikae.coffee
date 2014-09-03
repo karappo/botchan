@@ -8,12 +8,12 @@
 #   None
 #
 # Commands:
-#   hubot train <from> <to> now  - Get the latest JP train time.
-#   hubot train <from> <to> <hour>:<minutes>  - Get the latest JP train time to arrive at <hour>:<minutes>.
-#   hubot train <from> <to> <minutes> later  - Get the latest JP train time to get on <minutes> later.
-#   hubot <number> trains <from> <to> now - Get JP train times.
-#   hubot <number> trains <from> <to> <hour:minutes>  - Get JP train times to arrive at <hour:minutes>.
-#   hubot <number> trains <from> <to> <minutes> later  - Get JP train times to get on <hour:minutes>.
+#   hubot (train|電車|乗(り|)換(え|)) <from> <to> now  - Get the latest JP train time.
+#   hubot (train|電車|乗(り|)換(え|)) <from> <to> <hour>:<minutes>  - Get the latest JP train time to arrive at <hour>:<minutes>.
+#   hubot (train|電車|乗(り|)換(え|)) <from> <to> <minutes> later  - Get the latest JP train time to get on <minutes> later.
+#   hubot <number> (trains|電車|乗(り|)換(え|)) <from> <to> now - Get JP train times.
+#   hubot <number> (trains|電車|乗(り|)換(え|)) <from> <to> <hour:minutes>  - Get JP train times to arrive at <hour:minutes>.
+#   hubot <number> (trains|電車|乗(り|)換(え|)) <from> <to> <minutes> later  - Get JP train times to get on <hour:minutes>.
 #
 # Author:
 #   3100
@@ -72,32 +72,32 @@ module.exports = (robot) ->
       else
         msg.send "something went wrong."
 
-  robot.respond /train (\S+) (\S+) now/i, (msg) ->
+  robot.respond /(train|電車|乗(り|)換(え|)) (\S+) (\S+) now/i, (msg) ->
     max = 1
     url = createUrl msg.match[1], msg.match[2]
     getTrains msg, url, max
 
-  robot.respond /train (\S+) (\S+) (\d{1,2})\:(\d{1,2})/i, (msg) ->
+  robot.respond /(train|電車|乗(り|)換(え|)) (\S+) (\S+) (\d{1,2})\:(\d{1,2})/i, (msg) ->
     max = 1
     url = createArrivalUrl msg.match[1], msg.match[2], msg.match[3], msg.match[4]
     getTrains msg, url, max
 
-  robot.respond /train (\S+) (\S+) (\d{1,2}) later/i, (msg) ->
+  robot.respond /(train|電車|乗(り|)換(え|)) (\S+) (\S+) (\d{1,2}) later/i, (msg) ->
     max = 1
     url = createDepartureUrl msg.match[1], msg.match[2], msg.match[3]
     getTrains msg, url, max
 
-  robot.respond /(\d+) trains (\S+) (\S+) now/i, (msg) ->
+  robot.respond /(\d+) (trains|電車|乗(り|)換(え|)) (\S+) (\S+) now/i, (msg) ->
     max = msg.match[1]
     url = createUrl msg.match[2], msg.match[3]
     getTrains msg, url, max
 
-  robot.respond /(\d+) trains (.*?) (.*?) (\d{1,2})\:(\d{1,2})/i, (msg) ->
+  robot.respond /(\d+) (trains|電車|乗(り|)換(え|)) (.*?) (.*?) (\d{1,2})\:(\d{1,2})/i, (msg) ->
     max = msg.match[1]
     url = createArrivalUrl msg.match[2], msg.match[3], msg.match[4], msg.match[5]
     getTrains msg, url, max
 
-  robot.respond /(\d+) trains (.*?) (.*?) (\d{1,2}) later/i, (msg) ->
+  robot.respond /(\d+) (trains|電車|乗(り|)換(え|)) (.*?) (.*?) (\d{1,2}) later/i, (msg) ->
     max = msg.match[1]
     url = createDepartureUrl msg.match[2], msg.match[3], msg.match[4]
     getTrains msg, url, max

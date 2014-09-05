@@ -62,21 +62,25 @@ module.exports = (robot) ->
 
     todays_garbage = garbage()
 
-    response = "#{target.month()+1}月のゴミ当番は #{touban(target)} さんです。\n"
-    response += "\n"
-    response += "可燃ゴミ：火・金の夜\n"
-    response += "古紙・布：水の夜\n"
-    response += "ビン・缶：木の夜\n"
+    res = "#{target.month()+1}月のゴミ当番は #{touban(target)} さんです。\n"
+    res += "\n"
+    res += "可燃ゴミ：火・金の夜\n"
+    res += "古紙・布：水の夜\n"
+    res += "ビン・缶：木の夜\n"
     if todays_garbage
-      response += "\n"
-      response += "おっと、今日は「#{todays_garbage}」が出せますよ！\n"
+      res += "\n"
+      res += "おっと、今日は「#{todays_garbage}」が出せますよ！\n"
 
-    msg.send response
+    msg.send res
 
-  module.exports = (robot) ->
-    new cron '0 0 17 * * 1-5', () =>
+  # 定期実行
+  new cron(
+    cronTime: '00 00 17 * * 1-5'
+    onTick: () =>
       todays_garbage = garbage()
       if todays_garbage
-        touban = if todays_garbage == 'ビン・缶' then "@mio" else touban()
-        robot.send {room: "#general"}, "ゴミ出し当番の #{touban} さん、今日は「#{todays_garbage}」が出せますよ〜\n"
-    , null, true, "Asia/Tokyo"
+        todays_touban = if todays_garbage is "ビン・缶" then "@mio" else touban()
+        robot.send {room: "#general"}, "ゴミ出し当番の #{todays_touban} さん、今日は「#{todays_garbage}」が出せますよ〜\n"
+    start: true
+    timeZone: "Asia/Tokyo"
+  )

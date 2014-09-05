@@ -38,22 +38,7 @@ module.exports = (robot) ->
       when 3 then   return '古紙・布'
       when 4 then   return 'ビン・缶'
       else          return
-
-  # ゴミ出し当番を通知
-  tellTouban = (msg, target = moment())->
-    res = "#{target.month()+1}月のゴミ当番は #{touban(target)} さんです。\n"
-    res += "\n"
-    res += "可燃ゴミ：火・金の夜\n"
-    res += "古紙・布：水の夜\n"
-    res += "ビン・缶：木の夜\n"
-
-    todays_garbage = garbage()
-    if todays_garbage
-      res += "\n"
-      res += "おっと、今日は「#{todays_garbage}」が出せますよ！\n"
-
-    msg.send res
-
+  
   robot.respond /((([0-9０１２３４５６７８９]+|先々|先|今|来|再来)月)|).*(ゴミ|ごみ|gomi|trash|garbage)/i, (msg) ->
     if msg.match[3]
       switch msg.match[3]
@@ -72,7 +57,18 @@ module.exports = (robot) ->
           if !target.isValid()
             msg.send "#{msg.match[3]}月のゴミ当番・・・、私にはわかりませんでした。ごめんなさい (;_;)"
             return
-    tellTouban(msg, target)
+    res = "#{target.month()+1}月のゴミ当番は #{touban(target)} さんです。\n"
+    res += "\n"
+    res += "可燃ゴミ：火・金の夜\n"
+    res += "古紙・布：水の夜\n"
+    res += "ビン・缶：木の夜\n"
+
+    todays_garbage = garbage()
+    if todays_garbage
+      res += "\n"
+      res += "おっと、今日は「#{todays_garbage}」が出せますよ！\n"
+
+    msg.send res
 
   # 定期実行
   new cron(

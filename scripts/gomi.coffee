@@ -29,7 +29,7 @@ module.exports = (robot) ->
   touban = (target = moment())->
     passed_months = (target.year() - start.year())*12 + (target.month() - start.month())
     index = passed_months % people.length
-    return "@#{people[index]}:"
+    return "@#{people[index]}"
 
   # 引数で与えた日に出せるゴミ
   garbage = (target = moment())->
@@ -80,7 +80,7 @@ module.exports = (robot) ->
     onTick: () =>
       todays_garbage = garbage()
       if todays_garbage
-        todays_touban = if todays_garbage is "ビン・缶" then "@mio:" else touban()
+        todays_touban = if todays_garbage is "ビン・缶" then "@mio" else touban()
         mes =  "17時になりました。後ひとふんばり！\n"
         mes += "あっ、ゴミ出し当番の #{todays_touban} さん、今日は「#{todays_garbage}」が出せますよ〜"
         robot.send {room: "#random"}, mes

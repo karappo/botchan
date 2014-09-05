@@ -78,8 +78,8 @@ module.exports = (robot) ->
       todays_garbage = garbage()
       if todays_garbage
         todays_touban = if todays_garbage is "ビン・缶" then "@mio" else touban()
-        mes =  "17時になりました。後ひとふんばり頑張りましょう！\n"
-        mes += "あ、今月ゴミ出し当番の #{todays_touban} さん、今日は「#{todays_garbage}」が出せますよ〜"
+        mes =  "17時になりました。後ひとふんばり！\n"
+        mes += "あっ、今月ゴミ出し当番の #{todays_touban} さん、今日は「#{todays_garbage}」が出せますよ〜"
         robot.send {room: "#random"}, mes
     start: true
     timeZone: "Asia/Tokyo"

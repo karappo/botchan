@@ -39,16 +39,11 @@ module.exports = (robot) ->
   robot.respond /((([0-9０１２３４５６７８９]+|先々|先|今|来|再来)月)|).*(ゴミ|ごみ|gomi|trash|garbage)/i, (msg) ->
     if msg.match[3]
       switch msg.match[3]
-        when '先々'
-          target = moment().subtract(2,'months')
-        when '先'
-          target = moment().subtract(1,'months')
-        when '今'
-          target = moment()
-        when '来'
-          target = moment().add(1,'months')
-        when '再来'
-          target = moment().add(2,'months')
+        when '先々' then target = moment().subtract(2,'months')
+        when '先'   then target = moment().subtract(1,'months')
+        when '今'   then target = moment()
+        when '来'   then target = moment().add(1,'months')
+        when '再来' then target = moment().add(2,'months')
         else
           num = msg.match[3]
           z = ["０","１","２","３","４","５","６","７","８","９"]
@@ -60,13 +55,13 @@ module.exports = (robot) ->
             msg.send "#{msg.match[3]}月のゴミ当番、私にはわかりませんでした。ごめんなさい・・・"
             return
 
-    todays_garbage = garbage()
-
     res = "#{target.month()+1}月のゴミ当番は #{touban(target)} さんです。\n"
     res += "\n"
     res += "可燃ゴミ：火・金の夜\n"
     res += "古紙・布：水の夜\n"
     res += "ビン・缶：木の夜\n"
+
+    todays_garbage = garbage()
     if todays_garbage
       res += "\n"
       res += "おっと、今日は「#{todays_garbage}」が出せますよ！\n"

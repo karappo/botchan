@@ -13,6 +13,9 @@
 #   hubot <gomi> - 当月のごみ当番を教えてくれます
 #   hubot <trash> - 当月のごみ当番を教えてくれます
 #   hubot <garbage> - 当月のごみ当番を教えてくれます
+#
+# Author:
+#   naokazuterada
 
 moment = require 'moment'
 cron = require('cron').CronJob

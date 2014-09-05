@@ -1,5 +1,6 @@
 [
   "shipit.coffee",
   "encourage.coffee",
-  "weather.coffee"
+  "weather.coffee",
+  "remind.coffee"
 ]

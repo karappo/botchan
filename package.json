@@ -26,14 +26,9 @@
     "hubot-cron": ">= 0.1.0",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-slack": "~2.1.1",
-<<<<<<< HEAD
     "hubot-cron": ">= 0.1.0",
     "moment": ">= 2.8.2",
     "hubot-thecat": "~1.0.1"
-=======
-    "moment": ">= 2.8.2",
-    "time": "^0.11.0"
->>>>>>> 0024b209134652a5eed0744fa7a2dc0d266b4f4e
   },
   "engines": {
     "node": ">= 0.8.x",

@@ -1,1 +1,4 @@
-["hubot-cron"]
+[
+  "hubot-cron",
+  "hubot-thecat"
+]

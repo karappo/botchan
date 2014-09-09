@@ -40,6 +40,7 @@ module.exports = (robot) ->
       else          return
   
   robot.respond /((([0-9０１２３４５６７８９]+|先々|先|今|来|再来)月)|).*(ゴミ|ごみ|gomi|trash|garbage)/i, (msg) ->
+    target = moment()
     if msg.match[3]
       switch msg.match[3]
         when '先々' then target = moment().subtract(2,'months')
@@ -57,6 +58,7 @@ module.exports = (robot) ->
           if !target.isValid()
             msg.send "#{msg.match[3]}月のゴミ当番・・・、私にはわかりませんでした。ごめんなさい (;_;)"
             return
+    
     res = "#{target.month()+1}月のゴミ当番は #{touban(target)} さんです。\n"
     res += "\n"
     res += "可燃ゴミ：火・金の夜\n"

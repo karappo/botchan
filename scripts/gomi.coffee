@@ -34,8 +34,8 @@ module.exports = (robot) ->
   # 引数で与えた日に出せるゴミ
   garbage = (target = moment())->
     switch target.format('d')*1
-      when 2,5 then return '可燃ごみ'
-      when 3 then   return '古紙・布'
+      when 0,3 then return '可燃ごみ'
+      when 1 then   return '古紙・布'
       when 4 then   return 'ビン・缶'
       else          return
   
@@ -61,9 +61,11 @@ module.exports = (robot) ->
     
     res = "#{target.month()+1}月のゴミ当番は #{touban(target)} さんです。\n"
     res += "\n"
-    res += "可燃ゴミ：火・金の夜\n"
-    res += "古紙・布：水の夜\n"
+    res += "可燃ゴミ：日・水の夜\n"
+    res += "古紙・布：月の夜\n"
     res += "ビン・缶：木の夜\n"
+    res += "\n"
+    res += "収集場所：弁天１〜４丁目\n"
 
     todays_garbage = garbage()
     if todays_garbage

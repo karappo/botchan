@@ -32,7 +32,7 @@ module.exports = (robot) ->
 
   # 定期実行
   new cron(
-    cronTime: '00 00 17 * * 1-5'
+    cronTime: '00 00 18 * * 1-5'
     onTick: say
     start: true
     timeZone: "Asia/Tokyo"

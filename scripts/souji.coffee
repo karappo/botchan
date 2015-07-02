@@ -23,8 +23,8 @@ cron = require('cron').CronJob
 module.exports = (robot) ->
 
   people = ['natsuki', 'mio', 'sagawa', 'terada']
-  area   = ['台所（コップも）', '窓', '階段', 'トイレ']
-  start = moment("2015-06-01","YYYY-MM-DD")
+  areas  = ['台所（コップも）', '窓', '階段', 'トイレ']
+  start  = moment("2015-06-01","YYYY-MM-DD")
 
   # target_arrayをcount分ずらしたものを返す
   rotate = (target_array, count=0)->
@@ -48,7 +48,8 @@ module.exports = (robot) ->
 
     result = ''
     for person, index in _people
-      result += "#{area[index]}: @#{person}\n"
+      area = areas[index]
+      result += "#{area}: @#{person}\n"
     return result
 
   robot.respond /((([0-9０１２３４５６７８９]+|先々|先|今|来|再来)月)|).*(掃除|そうじ|souji|sooji|soji)/i, (msg) ->

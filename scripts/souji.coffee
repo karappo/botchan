@@ -3,7 +3,6 @@
 #
 # Dependencies:
 #   moment.js
-#   lodash-node
 #
 # Configuration:
 #   None
@@ -20,7 +19,6 @@
 
 moment = require 'moment'
 cron = require('cron').CronJob
-_ = require('lodash-node')
 
 module.exports = (robot) ->
 
@@ -53,14 +51,6 @@ module.exports = (robot) ->
       result += "#{area[index]}: @#{person}\n"
     return result
 
-  # 引数で与えた日に出せるゴミ
-  garbage = (target = moment())->
-    switch target.format('d')*1
-      when 0,3 then return '可燃ごみ'
-      when 1 then   return '古紙・布'
-      when 4 then   return 'ビン・缶'
-      else          return
-
   robot.respond /((([0-9０１２３４５６７８９]+|先々|先|今|来|再来)月)|).*(掃除|そうじ|souji|sooji|soji)/i, (msg) ->
     target = moment()
     if msg.match[3]
@@ -81,19 +71,18 @@ module.exports = (robot) ->
             msg.send "#{msg.match[3]}月のそうじ担当・・・、私にはわかりませんでした。ごめんなさい (;_;)"
             return
     res =  "#{target.month()+1}月のそうじ担当は下記のとおりです。\n\n"
-    res += "#{touban(target)}"
+    res += touban(target)
     msg.send res
 
   # 定期実行
   new cron(
-    cronTime: '00 00 17 * * 1-5'
+    cronTime: '00 00 10 1 * *'
     onTick: () =>
-      todays_garbage = garbage()
-      if todays_garbage
-        todays_touban = if todays_garbage is "ビン・缶" then "@mio" else touban()
-        mes =  "17時になりました。後ひとふんばり！\n"
-        mes += "あっ、ゴミ出し当番の #{todays_touban} さん、今日は「#{todays_garbage}」が出せますよ〜"
-        robot.send {room: "#random"}, mes
+      mes =  "おはようございます！\n"
+      mes += "#{moment().month()+1}月のそうじ担当は下記のとおりです。\n\n"
+      mes += touban()
+
+      robot.send {room: "#random"}, mes
     start: true
     timeZone: "Asia/Tokyo"
   )

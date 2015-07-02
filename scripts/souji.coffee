@@ -24,28 +24,29 @@ _ = require('lodash-node')
 
 module.exports = (robot) ->
 
-  people = ['terada', 'sagawa', 'mio', 'natsuki']
-  area   = ['トイレ', '階段', '窓', '台所（コップも）']
-
+  people = ['natsuki', 'mio', 'sagawa', 'terada']
+  area   = ['台所（コップも）', '窓', '階段', 'トイレ']
   start = moment("2015-06-01","YYYY-MM-DD")
 
-  # _arrayを_index分ずらしたものを返す
-  rotation = (_array, _index)->
-    _array = people.slice(0) # copy
-    _length = _array.length
-    console.log _array
-    _array = _array.concat(_array)
-    _array = _.slice(_array, _index, _length+1)
-    console.log _array
-    return _array
+  # target_arrayをcount分ずらしたものを返す
+  rotate = (target_array, count=0)->
+    array = target_array.slice(0) # copy
+
+    # convert count to value in range [0, len]
+    len = array.length
+    count = ((count % len) + len) % len
+
+    # rotate
+    for i in [0...count]
+      array.push(array.shift())
+    return array
 
   # 引数で与えた日のゴミ当番
   touban = (target = moment())->
     passed_months = (target.year() - start.year())*12 + (target.month() - start.month())
     index = passed_months % people.length
-    console.log 'index', index
 
-    _people = rotation(people, index)
+    _people = rotate(people, index)
 
     result = ''
     for person, index in _people

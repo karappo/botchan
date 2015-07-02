@@ -2,7 +2,8 @@
 #   そうじの担当を教えてくれます
 #
 # Dependencies:
-#   moment.js
+#   moment
+#   cron
 #
 # Configuration:
 #   None

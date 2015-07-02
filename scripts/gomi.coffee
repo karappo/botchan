@@ -2,7 +2,8 @@
 #   ゴミ出し当番を教えてくれます
 #
 # Dependencies:
-#   moment.js
+#   moment
+#   cron
 #
 # Configuration:
 #   None
@@ -24,7 +25,7 @@ module.exports = (robot) ->
 
   people = ["terada", "sagawa", "natsuki"]
   start = moment("2014-07-01","YYYY-MM-DD")
-  
+
   # 引数で与えた日のゴミ当番
   touban = (target = moment())->
     passed_months = (target.year() - start.year())*12 + (target.month() - start.month())
@@ -38,7 +39,7 @@ module.exports = (robot) ->
       when 1 then   return '古紙・布'
       when 4 then   return 'ビン・缶'
       else          return
-  
+
   robot.respond /((([0-9０１２３４５６７８９]+|先々|先|今|来|再来)月)|).*(ゴミ|ごみ|gomi|trash|garbage)/i, (msg) ->
     target = moment()
     if msg.match[3]
@@ -58,7 +59,7 @@ module.exports = (robot) ->
           if !target.isValid()
             msg.send "#{msg.match[3]}月のゴミ当番・・・、私にはわかりませんでした。ごめんなさい (;_;)"
             return
-    
+
     res = "#{target.month()+1}月のゴミ当番は #{touban(target)} さんです。\n"
     res += "\n"
     res += "可燃ゴミ：日・水の夜\n"

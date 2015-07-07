@@ -22,7 +22,7 @@ module.exports = (robot) ->
     say()
 
   notif = (mes)->
-    robot.send {room: "#random"}, mes
+    robot.send {room: "#robot"}, mes
 
   say = ->
     today = moment()

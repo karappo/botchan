@@ -84,7 +84,7 @@ module.exports = (robot) ->
       mes += "#{moment().month()+1}月のそうじ担当は下記のとおりです。\n\n"
       mes += touban()
 
-      robot.send {room: "#random"}, mes
+      robot.send {room: "#robot"}, mes
     start: true
     timeZone: "Asia/Tokyo"
   )

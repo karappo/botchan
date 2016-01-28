@@ -60,18 +60,24 @@ module.exports = (robot) ->
             msg.send "#{msg.match[3]}月のゴミ当番・・・、私にはわかりませんでした。ごめんなさい (;_;)"
             return
 
-    res = "#{target.month()+1}月のゴミ当番は #{touban(target)} さんです。\n"
-    res += "\n"
-    res += "可燃ゴミ：日・水の夜\n"
-    res += "古紙・布：月の夜\n"
-    res += "ビン・缶：木の夜\n"
-    res += "\n"
-    res += "収集場所：弁天１〜４丁目\n"
+    res =
+      """
+      #{target.month()+1}月のゴミ当番は #{touban(target)} さんです。
+
+      可燃ゴミ：日・水の夜
+      古紙・布：月の夜
+      ビン・缶：木の夜
+
+      収集場所：弁天１〜４丁目
+      """
 
     todays_garbage = garbage()
     if todays_garbage
-      res += "\n"
-      res += "おっと、今日は「#{todays_garbage}」が出せますよ！\n"
+      res +=
+        """
+
+        おっと、今日は「#{todays_garbage}」が出せますよ！
+        """
 
     msg.send res
 
@@ -82,8 +88,11 @@ module.exports = (robot) ->
       todays_garbage = garbage()
       if todays_garbage
         todays_touban = if todays_garbage is "ビン・缶" then "@mio" else touban()
-        mes =  "17時になりました。後ひとふんばり！\n"
-        mes += "あっ、ゴミ出し当番の #{todays_touban} さん、今日は「#{todays_garbage}」が出せますよ〜"
+        mes =
+          """
+          17時になりました。後ひとふんばり！
+          あっ、ゴミ出し当番の #{todays_touban} さん、今日は「#{todays_garbage}」が出せますよ〜
+          """
         robot.send {room: "#robot"}, mes
     start: true
     timeZone: "Asia/Tokyo"

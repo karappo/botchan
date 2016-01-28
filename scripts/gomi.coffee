@@ -23,7 +23,7 @@ cron = require('cron').CronJob
 
 module.exports = (robot) ->
 
-  people = ["terada", "sagawa", "natsuki"]
+  people = ["terada"]
   start = moment("2014-07-01","YYYY-MM-DD")
 
   # 引数で与えた日のゴミ当番

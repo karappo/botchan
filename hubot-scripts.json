@@ -4,5 +4,6 @@
   "encourage.coffee",
   "weather.coffee",
   "remind.coffee",
-  "applause.coffee"
+  "applause.coffee",
+  "update.coffee"
 ]

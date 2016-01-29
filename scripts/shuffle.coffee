@@ -1,5 +1,5 @@
 # Description:
-#   メンバーをシャッフルします。
+#   Karappoメンバーのリストをシャッフルして表示
 #
 # Dependencies:
 #   lodash
@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot <shuffle|sort|junban|シャッフル|しゃっふる|順番>
+#   hubot <shuffle|sort|junban|シャッフル|しゃっふる|順番> - Karappoメンバーのリストをシャッフルして表示
 #
 # Author:
 #   naokazuterada

@@ -51,6 +51,11 @@ module.exports = (robot) ->
       result += "#{area}: @#{person}\n"
     return result
 
+  # TODO そうじというワードで二重投稿してしまうのをなんとかしたい
+  robot.hear /(掃除|そうじ|souji|sooji|soji)(おわり|終わり|終り|終了|完了|finish|end|OK|しました|した|やった)/i, (msg) ->
+    username = msg.message.user.name
+    msg.send "@#{username} さん、お掃除お疲れ様でした！"
+
   robot.respond /((([0-9０１２３４５６７８９]+|先々|先|今|来|再来)月)|).*(掃除|そうじ|souji|sooji|soji)/i, (msg) ->
     target = moment()
     if msg.match[3]

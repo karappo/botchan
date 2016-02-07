@@ -21,6 +21,7 @@ module.exports = (robot) ->
     if matches == null or matches.length == 0
       return
     msg.send "どーんといこう！"
+    msg.send JSON.stringify(msg.message,　null,　'  ')
 
   # robot.catchAll (msg) ->
   #   if(msg.message.text.match(/(\w*) entered the office/))

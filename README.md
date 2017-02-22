@@ -1,3 +1,12 @@
+# IBM Bluemix での運用
+
+2016.2.22 Heroku から Bluemix へ移行した。
+
+1. Bluemixのアカウントを作成
+2. CloudFoundryアプリの中から、DevOps>Delivery Pipelineを選択、無料枠で作成
+3. Githubと連携するPipeline作って、pushイベントを飛ばすと、自動的にアプリが作成されるはず
+4. 作成されたアプリのランタイム＞環境変数 に`HUBOT_SLACK_TOKEN`と`HUBOT_SLACK_TEAM`と`HUBOT_SLACK_BOTNAME`を設定（値は[こちら](https://karappo.slack.com/services/2605121852?updated=1)を参照）
+
 # Hubot
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.
@@ -139,7 +148,7 @@ UI.
     % heroku config:set HUBOT_CAMPFIRE_TOKEN="..."
 
 Get the numeric IDs of the rooms you want the bot to join, comma delimited. If
-you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42` 
+you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42`
 and `https://mysubdomain.campfirenow.com/room/1024` then you'd add it like this:
 
     % heroku config:set HUBOT_CAMPFIRE_ROOMS="42,1024"

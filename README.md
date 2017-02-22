@@ -6,6 +6,10 @@
 2. CloudFoundryアプリの中から、DevOps>Delivery Pipelineを選択、無料枠で作成
 3. Githubと連携するPipeline作って、pushイベントを飛ばすと、自動的にアプリが作成されるはず
 4. 作成されたアプリのランタイム＞環境変数 に`HUBOT_SLACK_TOKEN`と`HUBOT_SLACK_TEAM`と`HUBOT_SLACK_BOTNAME`を設定（値は[こちら](https://karappo.slack.com/services/2605121852?updated=1)を参照）
+5. うまくいかない場合はエラーが出ていないか確認（アプリ＞ログ）
+
+↓ショートカット（リンク先の「Use Continuous Delivery to deploy this example instead?」というリンクをクリックするとパイプラインの作成へジャンプできるっぽい）
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/karappo/botchan.git)
 
 # Hubot
 

@@ -1,6 +1,5 @@
 [
   "hubot-cron",
   "hubot-thecat",
-  "hubot-youtube",
-  "hubot-shipit"
+  "hubot-youtube"
 ]

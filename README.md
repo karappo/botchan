@@ -1,3 +1,7 @@
+# Deoploy
+
+**Githubのmasterにpush後、しばらくすると同期されます。**
+
 # IBM Bluemix での運用
 
 2016.2.22 Heroku から Bluemix へ移行した。

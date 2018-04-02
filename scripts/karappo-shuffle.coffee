@@ -17,7 +17,7 @@ _ = require('lodash')
 
 module.exports = (robot) ->
 
-  people = ['mio', 'terada', 'sagawa', 'mamiko']
+  people = ['mio', 'terada', 'natsuki', 'mamiko']
 
   robot.respond /(shuffle|sort|junban|シャッフル|しゃっふる|順番)/i, (msg) ->
     response = "OK, shuffled...\n\n"

@@ -21,7 +21,7 @@ cron = require('cron').CronJob
 
 module.exports = (robot) ->
 
-  people = ['mamiko', 'mio', 'sagawa', 'terada']
+  people = ['mamiko', 'mio', 'natsuki', 'terada']
   areas  = ['台所（コップも）', '床（ルンバの取り残し）・本棚など', '階段', 'トイレ']
   start  = moment("2015-06-01","YYYY-MM-DD")
 

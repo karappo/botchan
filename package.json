@@ -9,6 +9,10 @@
     "campfire",
     "bot"
   ],
+  "scripts": {
+    "login": "ibmcloud login",
+    "deploy": "bluemix app push botchan2"
+  },
   "description": "A simple helpful robot for your Company",
   "licenses": [
     {

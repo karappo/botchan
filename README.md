@@ -21,8 +21,8 @@
 # Deploy（GitHub連携がうまくいっていないので、直接ibmcloudにpushする）
 
 ```sh
-ibmcloud login
-bluemix app push botchan2
+npm run login
+npm run deploy
 ```
 
 # Hubot

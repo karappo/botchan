@@ -59,14 +59,12 @@ module.exports = (robot) ->
 
     res =
       """
-      #{target.month()+1}月のゴミ当番は #{touban(target)} さんです。
+      弁天１〜４丁目のゴミスケジュールです。
 
-      可燃ゴミ：日・水の夜
-      古紙・布：月の夜
-      ビン・缶：木の夜
-      不燃・有害ゴミ：第2・4火曜日の夜
-
-      収集場所：弁天１〜４丁目
+      可燃ゴミ：月・木
+      古紙・布：火
+      ビン・缶：金
+      不燃・有害ゴミ：第2・4水曜日の夜
       """
 
     todays_garbage = garbage()
@@ -89,7 +87,7 @@ module.exports = (robot) ->
         mes =
           """
           17時になりました。後ひとふんばり！
-          あっ、ゴミ出し当番の #{todays_touban} さん、今日は「#{todays_garbage}」が出せますよ〜
+          あっ、ゴミ出し当番さん、今日は「#{todays_garbage}」が出せますよ〜
           """
         robot.send {room: "#robot"}, mes
     start: true

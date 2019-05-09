@@ -2,10 +2,8 @@ applications:
 - path: ./
   memory: 256M
   instances: 1
-  domain: mybluemix.net
+  domain: au-syd.mybluemix.net
   command: ./bin/hubot --adapter slack
-  name: botchan
-  host: botchan
+  name: botchan2
+  host: botchan2
   disk_quota: 1024M
-  env:
-    HUBOT_SLACK_TOKEN: oVHLSvnoCfzaYfx7nxW9LuuL

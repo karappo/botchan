@@ -4,8 +4,8 @@ applications:
   instances: 1
   domain: mybluemix.net
   command: ./bin/hubot --adapter slack
-  name: slack20180612
-  host: slack20180612
+  name: botchan
+  host: botchan
   disk_quota: 1024M
   env:
     HUBOT_SLACK_TOKEN: oVHLSvnoCfzaYfx7nxW9LuuL

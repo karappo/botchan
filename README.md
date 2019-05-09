@@ -18,6 +18,13 @@
 
 [IBM Cloud 上の botchan の管理画面](https://cloud.ibm.com/apps/3a371f59-ac9e-4bae-803b-bb04a8ea8202?paneId=overview&ace_config=%7B%22region%22%3A%22us-south%22%2C%22crn%22%3A%22crn%3Av1%3Abluemix%3Apublic%3Aconsole%3Aus-south%3A%3A%3Acf-application%3A3a371f59-ac9e-4bae-803b-bb04a8ea8202%22%2C%22resource_id%22%3A%223a371f59-ac9e-4bae-803b-bb04a8ea8202%22%2C%22orgGuid%22%3A%2233bbc725-99ed-4e67-a6ac-9bd1caf97806%22%2C%22spaceGuid%22%3A%22d286d214-0ffd-4445-9172-fd1d7f1c8a2f%22%2C%22redirect%22%3A%22https%3A%2F%2Fcloud.ibm.com%2Fresources%22%2C%22bluemixUIVersion%22%3A%22v6%22%7D&env_id=ibm:yp:us-south)
 
+# Deploy
+
+```sh
+ibmcloud login
+bluemix app push botchan
+```
+
 # Hubot
 
 This is a version of GitHub's Campfire bot, hubot. He's pretty cool.

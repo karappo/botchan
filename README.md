@@ -16,9 +16,9 @@
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/karappo/botchan.git)
 
 
-[IBM Cloud 上の botchan2 の管理画面](https://cloud.ibm.com/apps/3a371f59-ac9e-4bae-803b-bb04a8ea8202?paneId=overview&ace_config=%7B%22region%22%3A%22us-south%22%2C%22crn%22%3A%22crn%3Av1%3Abluemix%3Apublic%3Aconsole%3Aus-south%3A%3A%3Acf-application%3A3a371f59-ac9e-4bae-803b-bb04a8ea8202%22%2C%22resource_id%22%3A%223a371f59-ac9e-4bae-803b-bb04a8ea8202%22%2C%22orgGuid%22%3A%2233bbc725-99ed-4e67-a6ac-9bd1caf97806%22%2C%22spaceGuid%22%3A%22d286d214-0ffd-4445-9172-fd1d7f1c8a2f%22%2C%22redirect%22%3A%22https%3A%2F%2Fcloud.ibm.com%2Fresources%22%2C%22bluemixUIVersion%22%3A%22v6%22%7D&env_id=ibm:yp:us-south)
+[IBM Cloud 上の botchan2 の管理画面](https://cloud.ibm.com/apps/4db32e85-f546-4cd2-8e76-5b270bd97489?paneId=overview&ace_config=%7B%22region%22%3A%22au-syd%22%2C%22crn%22%3A%22crn%3Av1%3Abluemix%3Apublic%3Acf%3Aau-syd%3As%2Ffab22cac-4465-4ad5-a098-73ba6f5edd91%3A%3Acf-application%3A4db32e85-f546-4cd2-8e76-5b270bd97489%22%2C%22resource_id%22%3A%224db32e85-f546-4cd2-8e76-5b270bd97489%22%2C%22orgGuid%22%3A%221b0a4693-d160-4362-bab8-51722dcf2ab3%22%2C%22spaceGuid%22%3A%22fab22cac-4465-4ad5-a098-73ba6f5edd91%22%2C%22redirect%22%3A%22https%3A%2F%2Fcloud.ibm.com%2Fresources%22%2C%22bluemixUIVersion%22%3A%22v6%22%7D&env_id=ibm:yp:au-syd)
 
-# 直接Deployする
+# Deploy（GitHub連携がうまくいっていないので、直接ibmcloudにpushする）
 
 ```sh
 ibmcloud login

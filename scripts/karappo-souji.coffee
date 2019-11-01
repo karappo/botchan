@@ -21,8 +21,8 @@ cron = require('cron').CronJob
 
 module.exports = (robot) ->
 
-  people = ['mamiko', 'mio', 'natsuki', 'terada']
-  areas  = ['台所（キッチン台・食器・床等）', 'ワークスペース（テーブル・棚・ルンバ掃除等）', '階段', 'トイレ']
+  people = ['mamiko', 'kishimoto', 'mio', 'natsuki', 'terada']
+  areas  = ['台所（キッチン台・食器・床等）', 'ワークスペース（テーブル・棚・ルンバ掃除等）', 'ワークスペース（テーブル・棚・ルンバ掃除等）', '階段', 'トイレ']
   start  = moment("2015-06-01","YYYY-MM-DD")
 
   # target_arrayをcount分ずらしたものを返す

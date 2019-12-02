@@ -9,7 +9,6 @@ npm run deploy
 
 ```sh
 bluemix login -u xxx@karappo.net -o Karappo -s prod
-
 ```
 
 # IBM Bluemix での運用

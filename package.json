@@ -34,7 +34,7 @@
     "hubot-slack": "^4.6.0",
     "hubot-thecat": "~1.0.1",
     "hubot-youtube": "^1.0.1",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "moment": "^2.10.6",
     "soupselect": "~0.2.0"
   },

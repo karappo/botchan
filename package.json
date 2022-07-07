@@ -35,7 +35,7 @@
     "hubot-thecat": "~1.0.1",
     "hubot-youtube": "^1.0.1",
     "lodash": "^4.17.11",
-    "moment": "^2.10.6",
+    "moment": "^2.29.4",
     "soupselect": "~0.2.0"
   },
   "engines": {
